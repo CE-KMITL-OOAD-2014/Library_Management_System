@@ -25,3 +25,5 @@ Route::get('b', function()
 {
 	return View::make('regisUser');
 });
+
+Route::get('person/registerUser', 'Person@registerUser');
