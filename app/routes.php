@@ -24,3 +24,8 @@ Route::get('regisUser', function()
 {
 	return View::make('regisUser');
 });
+
+Route::get('/a', function()
+{
+	return 'a';
+});
