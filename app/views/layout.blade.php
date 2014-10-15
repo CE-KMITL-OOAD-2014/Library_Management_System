@@ -29,7 +29,9 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
       		</button>
-      		<a class="navbar-brand" href="#">Brand</a>
+      		<a class="navbar-brand" href="#">
+      			<span class="glyphicon glyphicon-home"></span>
+      		</a>
     		</div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -37,6 +39,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#">Search</a></li>
         <li><a href="#">Member</a></li>
+        <li><a href="#">Contract Us</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
