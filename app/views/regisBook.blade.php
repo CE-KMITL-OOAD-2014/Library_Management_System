@@ -23,42 +23,47 @@
    <div class="row">
    	<div class="col-xs-6 col-md-4"></div>
 	<div class="col-xs-6 col-md-4">
-	<form name="form1" method="post" action="save_register"> Register Form <br>
+	<form name="form1" method="post" action="save_register">
+		<center>Register Form</center>
+	<br>
 	<table width="400" border="1" style="width: 400px">
 	<tbody>
 	<tr>
 		<td width="125"> &nbsp;Title(Thai)</td>
 		<td width="180">
-			<input name="txtNameThai" type="text" id="txtNameThai" size="35">
+			<input name="txtNameThai" type="text" id="txtNameThai" class="form-control" placeholder="Title(Thai)">
 		</td>
 	</tr>
 
 	<tr>
 		<td width="125"> &nbsp;Title(English)</td>
 		<td width="180">
-			<input name="txtNameEng" type="text" id="txtNameEng" size="35">
+			<input name="txtNameEng" type="text" id="txtNameEng" class="form-control" placeholder="Title(English)">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Publishing</td>
 		<td>
-			<input name="txtPublishing" type="text" id="txtPublishing" size="35">
+			<input name="txtPublishing" type="text" id="txtPublishing" class="form-control" placeholder="Publishing">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Type</td>
 		<td>
-			<input name="txtType" type="text" id="txtType" size="35">
+			<select name="ddlType" id="ddlType" class="form-control">
+				<option value="Cartoon">Cartoon</option>
+				<option value="History">History</option>
+			</select>
 		</td>
 	</tr>
 
 	</tbody>
 	</table>
 	<br>
-		<input type="submit" name="Submit" value="Summit">
-		<input type="submit" name="Submit" value="Summit">
+		<button type="submit" name="Submit" value="Summit" class="btn btn-primary">Submit</button>
+		<button type="reset" name="Submit" value="Summit" class="btn btn-danger">Reset</button>
 	</form>
 	</div>
 	<div class="col-xs-6 col-md-4"></div>
