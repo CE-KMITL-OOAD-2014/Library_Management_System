@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>สมัครสมาชิกผู้ใช้งาน</title>
+    <title>ลงทะเบียนหนังสือ</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,63 +24,33 @@
 	<table width="400" border="1" style="width: 400px">
 	<tbody>
 	<tr>
-		<td width="125"> &nbsp;Username</td>
+		<td width="125"> &nbsp;Title(Thai)</td>
 		<td width="180">
-			<input name="txtUsername" type="text" id="txtUsername" size="20">
-		</td>
-		</tr>
-
-	<tr>
-		<td> &nbsp;Password</td>
-		<td> 
-			<input name="txtPassword" type="password" id="txtPassword">
+			<input name="txtNameThai" type="text" id="txtNameThai" size="35">
 		</td>
 	</tr>
 
 	<tr>
-		<td> &nbsp;Confirm Password</td>
+		<td width="125"> &nbsp;Title(English)</td>
+		<td width="180">
+			<input name="txtNameEng" type="text" id="txtNameEng" size="35">
+		</td>
+	</tr>
+
+	<tr>
+		<td> &nbsp;Publishing</td>
 		<td>
-			<input name="txtConPassword" type="password" id="txtConPassword">
+			<input name="txtPublishing" type="text" id="txtPublishing" size="35">
 		</td>
 	</tr>
 
 	<tr>
-		<td> &nbsp;Name</td>
+		<td> &nbsp;Type</td>
 		<td>
-			<input name="txtName" type="text" id="txtName" size="35">
+			<input name="txtType" type="text" id="txtType" size="35">
 		</td>
 	</tr>
 
-	<tr>
-		<td> &nbsp;Surname</td>
-		<td>
-			<input name="txtSurname" type="text" id="txtSurname" size="35">
-		</td>
-	</tr>
-
-	<tr>
-		<td> &nbsp;E-mail</td>
-		<td>
-			<input name="txtEmail" type="text" id="txtEmail" size="35">
-		</td>
-	</tr>
-
-	<tr>
-		<td> &nbsp;PhoneNumber</td>
-		<td>
-			<input name="txtPhone" type="text" id="txtPhone" size="35">
-		</td>
-	</tr>
-
-	<tr>
-		<td> &nbsp;Status</td>
-		<td>
-			<select name="ddlStatus" id="ddlStatus">
-				<option value="ADMIN">ADMIN </option>
-				<option value="USER">USER </option>
-			</select>
-		</td>
-	</tr>
 	</tbody>
 	</table>
 	<br>
