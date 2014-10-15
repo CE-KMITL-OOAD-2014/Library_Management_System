@@ -22,75 +22,77 @@
    <div class="row">
    	<div class="col-xs-6 col-md-4"></div>
 	<div class="col-xs-6 col-md-4">
-	<form name="form1" method="post" action="save_register"> Register Form <br>
+	<form name="form1" method="post" action="save_register"> 
+		<center>Register Form</center>
+	<br>
 	<table width="400" border="1" style="width: 400px">
 	<tbody>
 	<tr>
 		<td width="125"> &nbsp;Username</td>
 		<td width="180">
-			<input name="txtUsername" type="text" id="txtUsername" size="20">
+			<input name="txtUsername" type="text" id="txtUsername" class="form-control" placeholder="Username">
 		</td>
 		</tr>
 
 	<tr>
 		<td> &nbsp;Password</td>
-		<td> 
-			<input name="txtPassword" type="password" id="txtPassword">
+		<td>
+			<input name="txtPassword" type="password" class="form-control" id="txtPassword" placeholder="Password">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Confirm Password</td>
 		<td>
-			<input name="txtConPassword" type="password" id="txtConPassword">
+			<input name="txtConPassword" type="password" class="form-control" id="txtConPassword" placeholder="Confirm Password">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Name</td>
 		<td>
-			<input name="txtName" type="text" id="txtName" size="35">
+			<input name="txtName" type="text" id="txtName" class="form-control" placeholder="Name">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Surname</td>
 		<td>
-			<input name="txtSurname" type="text" id="txtSurname" size="35">
+			<input name="txtSurName" type="text" id="txtSurName" class="form-control" placeholder="Surname">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;E-mail</td>
 		<td>
-			<input name="txtEmail" type="text" id="txtEmail" size="35">
+			<input name="txtEmail" type="text" id="txtEmail" class="form-control" placeholder="E-mail">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;PhoneNumber</td>
 		<td>
-			<input name="txtPhone" type="text" id="txtPhone" size="35">
+			<input name="txtPhone" type="text" id="txtPhone" class="form-control" placeholder="Phone">
 		</td>
 	</tr>
 
 	<tr>
 		<td> &nbsp;Status</td>
 		<td>
-			<select name="ddlStatus" id="ddlStatus">
-				<option value="ADMIN">ADMIN </option>
-				<option value="USER">USER </option>
+			<select name="ddlStatus" id="ddlStatus" class="form-control">
+				<option value="ADMIN">ADMIN</option>
+				<option value="USER">USER</option>
 			</select>
 		</td>
 	</tr>
 	</tbody>
 	</table>
 	<br>
-		<input type="submit" name="Submit" value="Summit">
-		<input type="submit" name="Submit" value="Summit">
+		<button type="submit" name="Submit" value="Summit" class="btn btn-primary">Submit</button>
+		<button type="reset" name="Submit" value="Summit" class="btn btn-danger">Reset</button>
 	</form>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-xs-6 col-md-4"></div>
 	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
