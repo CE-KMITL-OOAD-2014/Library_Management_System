@@ -15,17 +15,13 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
-Route::get('me', function()
+
+Route::get('a', function()
 {
-	return "I'm Batman.";
+	return View::make('regisBook');
 });
 
-Route::get('regisUser', function()
+Route::get('b', function()
 {
 	return View::make('regisUser');
-});
-
-Route::get('/a', function()
-{
-	return 'a';
 });
