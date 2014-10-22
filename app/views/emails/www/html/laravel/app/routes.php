@@ -15,55 +15,30 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
-Route::get('me', function()
-{
-	return "I'm Batman.";
-});
 
-Route::get('regisUser', function()
-{
-	return View::make('regisUser');
-});
+Route::get('person/register', 'Person@register');
 
-Route::post('save_register', function()
-{
-	return View::make('save_register');
-});
+Route::post('person/save_register', 'Person@save_register');
 
-Route::get('login', function()
-{
-	return View::make('login');
-});
+Route::get('person/login', 'Person@login');
 
-Route::post('check_login', function()
-{
-	return View::make('check_login');
-});
+Route::post('person/check', 'Person@check');
 
-Route::get('admin_page', function()
-{
-	return View::make('admin_page');
-});
+Route::get('person/admin', 'Person@admin');
 
-Route::get('user_page', function()
-{
-	return View::make('user_page');
-});
+Route::get('person/user', 'Person@user');
 
-Route::get('edit_profile', function()
-{
-	return View::make('edit_profile');
-});
+Route::get('person/member', 'Person@member');
 
-Route::post('save_profile', function()
-{
-	return View::make('save_profile');
-});
+Route::get('person/edit', 'Person@edit');
 
-Route::get('logout', function()
-{
-	return View::make('logout');
-});
+Route::post('person/save', 'Person@save');
+
+Route::get('person/logout', 'Person@logout');
+
+Route::get('book/register', 'Book@register');
+
+Route::post('book/save_register', 'Book@save_register');
 
 
 
