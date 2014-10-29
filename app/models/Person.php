@@ -73,8 +73,10 @@ class Person {
            $tmpRepo->Status = $this->Status;
            $tmpRepo->save();
            echo "Pass";
+           return $tmpRepo;
         }else{
            echo "Fail";
+           return $tmpRepo;
         }
     }
 
