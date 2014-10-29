@@ -53,8 +53,10 @@ class Book {
            $tmpData->SubType = $tmpRepo[0]->SubType;
            $tmpData->Status = $tmpRepo[0]->Status;
            echo "Pass";
+           return $tmpRepo;
         }else{
            echo "Fail";
+           return $tmpRepo;
         }
     }
 
