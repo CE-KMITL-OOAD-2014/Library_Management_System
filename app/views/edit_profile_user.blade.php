@@ -62,8 +62,8 @@
               <h5><span class="glyphicon glyphicon-list-alt"></span> History <i class="glyphicon glyphicon-chevron-down"></i></h5>
             </a>
             <ul class="list-unstyled collapse in" id="MenuPerson">
-              <li><a href="/book/booking_history"><i class="glyphicon glyphicon-th-list"></i> Booking List </a></li>
-              <li><a href="/book/borrow_history"><i class="glyphicon glyphicon-th-list"></i> Borrow List </a></li>
+              <li><a href="/person/list_user"><i class="glyphicon glyphicon-th-list"></i> Booking List </a></li>
+              <li><a href="/person/search_user"><i class="glyphicon glyphicon-th-list"></i> Borrow List </a></li>
             </ul>
           </li>
         </ul>
@@ -76,40 +76,57 @@
         <div class="row">
           <div class="col-xs-6 col-md-2"></div>
           <div class="col-xs-6 col-md-8">
-            <center><strong><h1>Welcome to User Page!</h1></strong></center>
-              <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Profile Member</strong></div>
+            <center><strong><h1>Edit Member</h1></strong></center>
+              <form action="{{ url('/person/save_edit')}}" name="frmEdit" method="post">
+              <div class="panel panel-info">
+                <div class="panel-heading"><strong>Edit Profile</strong></div>
                 <div class="panel-body">
                   <div class="row">
-                    <div class="col-xs-6 col-md-12">
-                        <label for="Username" class="col-md-4 control-label">Username</label>
+                    <div class="col-xs-12 col-md-12">
+
+                        <label for="UserID" class="col-md-4 control-label ">UserID</label>
                       <div class="col-md-8 form-group">
-                        <label for="Username">{{$User->Username}}</label>
+                        <label for="UserID">{{$User->id}}</label>
                       </div>
 
-                      <label for="Name" class="col-md-4 control-label">Name</label>
+                        <label for="txtUsername" class="col-md-4 control-label ">Username</label>
                       <div class="col-md-8 form-group">
-                        <label for="Name">{{$User->Name}}</label>
+                        <input name="txtUsername" type="text" class="form-control" id="txtUsername" placeholder="Username" value="{{$User->Username}}">
                       </div>
 
-                      <label for="Surname" class="col-md-4 control-label">Surname</label>
+                       <label for="txtPassword" class="col-md-4 control-label ">Password</label>
                       <div class="col-md-8 form-group">
-                        <label for="Surname">{{$User->Surname}}</label>
+                        <input name="txtPassword" type="password" class="form-control" id="txtPassword" placeholder="Password" value="{{$User->Password}}">
                       </div>
 
-                      <label for="Address" class="col-md-4 control-label">Address</label>
+                      <label for="txtConPassword" class="col-md-4 control-label ">Confirm Password</label>
                       <div class="col-md-8 form-group">
-                        <label for="Address">{{$User->Address}}</label>
+                        <input name="txtConPassword" type="password" class="form-control" id="txtConPassword" placeholder="Confirm Password" value="{{$User->Password}}">
                       </div>
 
-                      <label for="Email" class="col-md-4 control-label">E-mail</label>
+                      <label for="txtName" class="col-md-4 control-label">Name</label>
                       <div class="col-md-8 form-group">
-                        <label for="Email">{{$User->Email}}</label>
+                        <input name="txtName" type="text" class="form-control" id="txtName" placeholder="Name" value="{{$User->Name}}">
                       </div>
 
-                      <label for="Phone" class="col-md-4 control-label">Phone Number</label>
+                      <label for="txtSurName" class="col-md-4 control-label">Surname</label>
                       <div class="col-md-8 form-group">
-                        <label for="Phone">{{$User->Phone}}</label>
+                        <input name="txtSurName" type="text" class="form-control" id="txtSurName" placeholder="Surname" value="{{$User->Surname}}">
+                      </div>
+
+                      <label for="txtAddress" class="col-md-4 control-label">Address/Office</label>
+                      <div class="col-md-8 form-group">
+                        <input name="txtAddress" type="text" class="form-control" id="txtAddress" placeholder="Address/Office" value="{{$User->Address}}">
+                      </div>
+
+                      <label for="txtEmail" class="col-md-4 control-label">E-mail</label>
+                      <div class="col-md-8 form-group">
+                        <input name="txtEmail" type="email" class="form-control" id="txtEmail" placeholder="E-mail" value="{{$User->Email}}">
+                      </div>
+
+                      <label for="txtPhone" class="col-md-4 control-label">Phone Number</label>
+                      <div class="col-md-8 form-group">
+                        <input name="txtPhone" type="text" class="form-control" id="txtPhone" placeholder="Phone Number" value="{{$User->Phone}}">
                       </div>
 
                       <label for="Status" class="col-md-4 control-label">Status</label>
@@ -119,16 +136,18 @@
                       @else
                           <label for="Status">Member (สมาชิก)</label>
                       @endif
-                     </div>                 
+                     </div>               
 
-                    <label  class="col-md-2 control-label"></label>
+                    <label  class="col-md-4 control-label"></label>
                     <div class="col-md-8 form-group">
-                      <a href="edit"><button type="button" class="btn btn-warning btn-lg btn-block">Edit Profile</button></a>
+                      <button type="submit" name="Edit" value="Edit" class="btn btn-warning">Edit</button>
+                      <button type="reset" name="Reset" value="Reset" class="btn btn-danger">Reset</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </form>
         </div>
         <div class="col-xs-6 col-md-2"></div>
       </div>

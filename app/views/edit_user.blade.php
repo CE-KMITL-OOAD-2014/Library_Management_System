@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>ประวัติบัญชีผู้ใช้งาน</title>
+  <title>แก้ไขข้อมูลสมาชิกผู้ใช้งาน</title>
   <meta name="generator" content="Bootply" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -79,59 +79,72 @@
         <div class="row">
           <div class="col-xs-6 col-md-2"></div>
           <div class="col-xs-6 col-md-8">
-            <center><strong><h1>Welcome to Admin Page!</h1></strong></center>
-              <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Profile Librarian</strong></div>
+            <center><strong><h1>Edit Member</h1></strong></center>
+              <form action="save_edit_user?UserID={{$User->id}}" name="frmEdit" method="post">
+              <div class="panel panel-info">
+                <div class="panel-heading"><strong>Edit Profile's User</strong></div>
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-xs-12 col-md-12">
-                        <label for="Username" class="col-md-4 control-label ">Username</label>
+
+                        <label for="txtUserID" class="col-md-4 control-label ">UserID</label>
                       <div class="col-md-8 form-group">
-                        <label for="Username">{{$User->Username}}</label>
+                        <input name="txtUserID" type="text" class="form-control" id="txtUserID" placeholder="UserID" value="{{$User->id}}">
                       </div>
 
-                      <label for="Name" class="col-md-4 control-label">Name</label>
+                        <label for="txtUsername" class="col-md-4 control-label ">Username</label>
                       <div class="col-md-8 form-group">
-                        <label for="Name">{{$User->Name}}</label>
+                        <input name="txtUsername" type="text" class="form-control" id="txtUsername" placeholder="Username" value="{{$User->Username}}">
                       </div>
 
-                      <label for="Surname" class="col-md-4 control-label">Surname</label>
+                      <label for="txtName" class="col-md-4 control-label">Name</label>
                       <div class="col-md-8 form-group">
-                        <label for="Surname">{{$User->Surname}}</label>
+                        <input name="txtName" type="text" class="form-control" id="txtName" placeholder="Name" value="{{$User->Name}}">
                       </div>
 
-                      <label for="Address" class="col-md-4 control-label">Address</label>
+                      <label for="txtSurName" class="col-md-4 control-label">Surname</label>
                       <div class="col-md-8 form-group">
-                        <label for="Address">{{$User->Address}}</label>
+                        <input name="txtSurName" type="text" class="form-control" id="txtSurName" placeholder="Surname" value="{{$User->Surname}}">
                       </div>
 
-                      <label for="Email" class="col-md-4 control-label">E-mail</label>
+                      <label for="txtAddress" class="col-md-4 control-label">Address/Office</label>
                       <div class="col-md-8 form-group">
-                        <label for="Email">{{$User->Email}}</label>
+                        <input name="txtAddress" type="text" class="form-control" id="txtAddress" placeholder="Address/Office" value="{{$User->Address}}">
                       </div>
 
-                      <label for="Phone" class="col-md-4 control-label">Phone Number</label>
+                      <label for="txtEmail" class="col-md-4 control-label">E-mail</label>
                       <div class="col-md-8 form-group">
-                        <label for="Phone">{{$User->Phone}}</label>
+                        <input name="txtEmail" type="email" class="form-control" id="txtEmail" placeholder="E-mail" value="{{$User->Email}}">
                       </div>
 
-                      <label for="Status" class="col-md-4 control-label">Status</label>
+                      <label for="txtPhone" class="col-md-4 control-label">Phone Number</label>
                       <div class="col-md-8 form-group">
-                      @if ($User->Status=='ADMIN')
-                          <label for="Status">Librarian (บรรณารักษ์)</label>
-                      @else
-                          <label for="Status">Member (สมาชิก)</label>
-                      @endif
+                        <input name="txtPhone" type="text" class="form-control" id="txtPhone" placeholder="Phone Number" value="{{$User->Phone}}">
+                      </div>
+
+                      <label for="ddlStatus" class="col-md-4 control-label">Status</label>
+                      <div class="col-md-8 form-group">
+                      <select name="ddlStatus" id="ddlStatus" class="form-control">
+                        @if ($User->Status=='ADMIN')
+                          <option value="ADMIN">Librarian (บรรณารักษ์)</option>
+                          <option value="USER">Member (สมาชิก)</option>
+                        @else
+                          <option value="USER">Member (สมาชิก)</option>
+                          <option value="ADMIN">Librarian (บรรณารักษ์)</option>
+                        @endif
+                     </select>
                      </div>                 
 
-                    <label  class="col-md-2 control-label"></label>
+                    <label  class="col-md-4 control-label"></label>
                     <div class="col-md-8 form-group">
-                      <a href="edit"><button type="button" class="btn btn-warning btn-lg btn-block">Edit Profile</button></a>
+                      <button type="submit" name="Edit" value="Edit" class="btn btn-warning">Edit</button>
+                      <button type="reset" name="Reset" value="Reset" class="btn btn-danger">Reset</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </form>
         </div>
         <div class="col-xs-6 col-md-2"></div>
       </div>

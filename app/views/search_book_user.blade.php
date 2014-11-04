@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>ประวัติบัญชีผู้ใช้งาน</title>
+  <title>ค้นหาหนังสือ</title>
   <meta name="generator" content="Bootply" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -72,63 +72,33 @@
         
       </div><!-- /col-3 -->
 
-        <div class="col-md-10">
+      <div class="col-md-10">
         <div class="row">
           <div class="col-xs-6 col-md-2"></div>
           <div class="col-xs-6 col-md-8">
-            <center><strong><h1>Welcome to User Page!</h1></strong></center>
-              <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Profile Member</strong></div>
+            <center><strong><h1>Search Book</h1></strong></center>
+              <form action="search_book_list" name="frmSearch" method="get">
+              <div class="panel panel-info">
+                <div class="panel-heading"><strong>Search Book Detail</strong></div>
                 <div class="panel-body">
                   <div class="row">
-                    <div class="col-xs-6 col-md-12">
-                        <label for="Username" class="col-md-4 control-label">Username</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Username">{{$User->Username}}</label>
-                      </div>
+                    <div class="col-xs-12 col-md-12">
 
-                      <label for="Name" class="col-md-4 control-label">Name</label>
+                        <label for="txtKeyword" class="col-md-4 control-label ">Keyword</label>
                       <div class="col-md-8 form-group">
-                        <label for="Name">{{$User->Name}}</label>
-                      </div>
+                        <input name="txtKeyword" type="text" class="form-control" id="txtKeyword" placeholder="Keyword">
+                      </div> 
 
-                      <label for="Surname" class="col-md-4 control-label">Surname</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Surname">{{$User->Surname}}</label>
-                      </div>
-
-                      <label for="Address" class="col-md-4 control-label">Address</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Address">{{$User->Address}}</label>
-                      </div>
-
-                      <label for="Email" class="col-md-4 control-label">E-mail</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Email">{{$User->Email}}</label>
-                      </div>
-
-                      <label for="Phone" class="col-md-4 control-label">Phone Number</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Phone">{{$User->Phone}}</label>
-                      </div>
-
-                      <label for="Status" class="col-md-4 control-label">Status</label>
-                      <div class="col-md-8 form-group">
-                      @if ($User->Status=='ADMIN')
-                          <label for="Status">Librarian (บรรณารักษ์)</label>
-                      @else
-                          <label for="Status">Member (สมาชิก)</label>
-                      @endif
-                     </div>                 
-
-                    <label  class="col-md-2 control-label"></label>
+                    <label  class="col-md-4 control-label"></label>
                     <div class="col-md-8 form-group">
-                      <a href="edit"><button type="button" class="btn btn-warning btn-lg btn-block">Edit Profile</button></a>
+                      <button type="submit" name="Search" value="Search" class="btn btn-success">Search</button>
+                      <button type="reset" name="Reset" value="Reset" class="btn btn-danger">Reset</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </form>
         </div>
         <div class="col-xs-6 col-md-2"></div>
       </div>

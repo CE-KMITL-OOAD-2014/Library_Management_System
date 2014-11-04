@@ -2,6 +2,7 @@
 
 class Person {
 
+    private $UserIDold;
     private $UserID;
     private $Username;
     private $Password;
@@ -29,7 +30,7 @@ class Person {
         $tmpRepo = PersonRepository::where('Username','=',$inUsername)->where('Password','=',$inPassword)->get();
         $tmpData = new Person;
         if(count($tmpRepo)==1){
-           $tmpData->UserID = $tmpRepo[0]->UserID;
+           $tmpData->UserID = $tmpRepo[0]->id;
            $tmpData->Username = $tmpRepo[0]->Username;
            $tmpData->Password = $tmpRepo[0]->Password;
            $tmpData->Name = $tmpRepo[0]->Name;
@@ -39,8 +40,10 @@ class Person {
            $tmpData->Phone = $tmpRepo[0]->Phone;
            $tmpData->Status = $tmpRepo[0]->Status;
            echo "Pass";
+           return $tmpData;
         }else{
            echo "Fail";
+           return NULL;
         }
     }
 
@@ -48,9 +51,34 @@ class Person {
     public function editRepository(){
         $tmpRepo = PersonRepository::find($this->UserID);
         if($tmpRepo!=NULL){
-            DB::table('members')->where('id','=',$this->UserID)->update(array('Password' => $this->Password,'Name' => $this->Name,'Name' => $this->Name,
+            DB::table('members')->where('id','=',$this->UserID)->update(array('Username' => $this->Username,'Password' => $this->Password,'Name' => $this->Name,'Name' => $this->Name,
                 'Surname' => $this->Surname,'Address' => $this->Address,'Email' => $this->Email,'Phone' => $this->Phone));        
-            echo "Pass";
+            echo "Save Completed!<br>";
+            echo "<a href=profile>Edit Profile</a><br>";
+        }else{
+            echo "Fail";
+        }
+    }
+
+    public function editUserRepository(){
+        $tmpRepo = PersonRepository::find($this->UserIDold);
+        if($tmpRepo!=NULL){
+            if($this->UserIDold==$this->UserID){
+            DB::table('members')->where('id','=',$this->UserID)->update(array('id' => $this->UserID,'Username' => $this->Username
+                ,'Name' => $this->Name,'Surname' => $this->Surname,'Email' => $this->Email,'Phone' => $this->Phone,'Status' => $this->Status));   
+            echo "Save Completed!<br>";
+            echo "<a href=list_user>List User</a><br>";
+        }else{
+            $tmpID = PersonRepository::find($this->UserID);
+            if($tmpID==NULL){
+            DB::table('members')->where('id','=',$this->UserID)->update(array('id' => $this->UserID,'Username' => $this->Username
+                ,'Name' => $this->Name,'Surname' => $this->Surname,'Email' => $this->Email,'Phone' => $this->Phone,'Status' => $this->Status));   
+            echo "Save Completed!<br>";
+            echo "<a href=list_user>List User</a><br>";
+            }else{
+                echo "UserID already exists!";
+            }
+        }
         }else{
             echo "Fail";
         }
@@ -59,7 +87,7 @@ class Person {
 
     //Complete 25-10-2014
     public function saveRepository(){
-        $tmpRepo = PersonRepository::where('Username','=',$this->Username)->where('Password','=',$this->Password)->get();
+        $tmpRepo = PersonRepository::where('Username','=',$this->Username)->get();
         if(count($tmpRepo)==0){
            $tmpRepo = new PersonRepository;
            $tmpRepo->id = $this->UserID;
@@ -72,12 +100,23 @@ class Person {
            $tmpRepo->Phone = $this->Phone;
            $tmpRepo->Status = $this->Status;
            $tmpRepo->save();
-           echo "Pass";
-           return $tmpRepo;
+           echo "Register Completed!";
+           echo "<br> Go to <a href='/login'>Login page</a>";
+            return $tmpRepo;
         }else{
-           echo "Fail";
-           return $tmpRepo;
+           echo "Username already exists!";
+           echo "<br> Go to <a href='register'>Register page</a>";
+            //return Redirect::intended('/person/register');
+            //return $tmpRepo;
         }
+    }
+
+    public function getUserIDold(){
+        return $this->UserIDold;
+    }
+
+    public function setUserIDold($inUserIDold){
+        $this->UserIDold = $inUserIDold;
     }
 
     public function getUserID(){

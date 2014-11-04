@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>ประวัติบัญชีผู้ใช้งาน</title>
+  <title>ยืมหนังสือต่อ</title>
   <meta name="generator" content="Bootply" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -76,58 +76,79 @@
         <div class="row">
           <div class="col-xs-6 col-md-2"></div>
           <div class="col-xs-6 col-md-8">
-            <center><strong><h1>Welcome to User Page!</h1></strong></center>
+            <center><strong><h1>Borrow Book (Renew) : {{$Book->Title1}}</h1></strong></center>
+            <form action="SaveReturnDate?BookID=<?php echo $_GET["BookID"];?>" name="frmEdit" method="post">
               <div class="panel panel-primary">
-                <div class="panel-heading"><strong>Profile Member</strong></div>
+                <div class="panel-heading"><strong>Borrow Book (Renew) Detail</strong></div>
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-xs-6 col-md-12">
-                        <label for="Username" class="col-md-4 control-label">Username</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Username">{{$User->Username}}</label>
-                      </div>
 
-                      <label for="Name" class="col-md-4 control-label">Name</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Name">{{$User->Name}}</label>
-                      </div>
-
-                      <label for="Surname" class="col-md-4 control-label">Surname</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Surname">{{$User->Surname}}</label>
-                      </div>
-
-                      <label for="Address" class="col-md-4 control-label">Address</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Address">{{$User->Address}}</label>
-                      </div>
-
-                      <label for="Email" class="col-md-4 control-label">E-mail</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Email">{{$User->Email}}</label>
-                      </div>
-
-                      <label for="Phone" class="col-md-4 control-label">Phone Number</label>
-                      <div class="col-md-8 form-group">
-                        <label for="Phone">{{$User->Phone}}</label>
-                      </div>
-
-                      <label for="Status" class="col-md-4 control-label">Status</label>
-                      <div class="col-md-8 form-group">
-                      @if ($User->Status=='ADMIN')
-                          <label for="Status">Librarian (บรรณารักษ์)</label>
-                      @else
-                          <label for="Status">Member (สมาชิก)</label>
-                      @endif
-                     </div>                 
-
-                    <label  class="col-md-2 control-label"></label>
+                    <label for="txtDateReturn" class="col-md-4 control-label">Date Return</label>
                     <div class="col-md-8 form-group">
-                      <a href="edit"><button type="button" class="btn btn-warning btn-lg btn-block">Edit Profile</button></a>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <select name="sD1" id="sD1" class="form-control">
+                            <?php
+                            for($i=0;$i<=31;$i++){
+                            $i2=sprintf("%02d",$i); // ฟอร์แมตรูปแบบให้เป็น 00
+                            if($i2 == "00"){
+                            ?>
+                            <option value="00">--Day--</option>
+                            <?php
+                          }else{
+                            echo '<option value="'.$i2.'">'.$i2.'</option>';
+                          }
+                          }?>
+                          </select>
+                        </div>
+                        <div class="col-md-4">
+                          <select name='sM1' id='sM1' class="form-control">
+                            <option value="00">--Month--</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4">
+                          <select name='sY1' id='sY1' class="form-control">
+                            <?php
+                            $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+                            ?>
+                            <option value="0000">--Year--</option>
+                            <?php
+                            for($i=0;$i<=10;$i++){
+                            echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
+                            }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
                     </div>
+
+                        <label for="Accept" class="col-md-4 control-label"></label>
+                      <div class="col-md-8 form-group">
+                          <label for="Accept">Do you want Borrow Continues?</label>
+                      </div>
+
+                        <label  class="col-md-4 control-label"></label>
+                      <div class="col-md-8 form-group">
+                        <button type="submit" name="Borrow" value="Borrow" class="btn btn-success">Borrow</button>
+                        <button type="reset" name="Reset" value="Reset" class="btn btn-danger">Reset</button>
+                      </div>
                   </div>
                 </div>
               </div>
+            </form>
             </div>
         </div>
         <div class="col-xs-6 col-md-2"></div>
@@ -136,9 +157,7 @@
   </div>
 </div>
 
-
 <footer class="text-center">Power</footer>
-
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
