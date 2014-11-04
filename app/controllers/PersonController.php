@@ -64,6 +64,7 @@ class PersonController extends BaseController {
 
 	
 		$newPerson = new Person;
+		$toRepository = new InterfacePersonRepo;
 		$newPerson->setUsername(Input::get('txtUsername'));
 		$newPerson->setPassword(Input::get('txtPassword'));
 		$newPerson->setName(Input::get('txtName'));
@@ -72,7 +73,7 @@ class PersonController extends BaseController {
 		$newPerson->setEmail(Input::get('txtEmail'));
 		$newPerson->setPhone(Input::get('txtPhone'));
 		$newPerson->setStatus(Input::get('ddlStatus'));
-		$newPerson->saveRepository();
+		$toRepository->saveRepository($newPerson);
 	}
 
 	public function save_edit()
@@ -90,6 +91,7 @@ class PersonController extends BaseController {
 		}
 
 		$editPerson = new Person;
+		$toRepository = new InterfacePersonRepo;
 		$editPerson->setUserID($_SESSION['id']);
 		$editPerson->setUsername(Input::get('txtUsername'));
 		$editPerson->setPassword(Input::get('txtPassword'));
@@ -98,7 +100,7 @@ class PersonController extends BaseController {
 		$editPerson->setAddress(Input::get('txtAddress'));
 		$editPerson->setEmail(Input::get('txtEmail'));
 		$editPerson->setPhone(Input::get('txtPhone'));
-		$editPerson->editRepository();
+		$toRepository->editRepository($editPerson);
 	}
 
 	//Complete 25-10-2014
@@ -148,6 +150,7 @@ class PersonController extends BaseController {
 		}
 	
 		$editPerson = new Person;
+		$toRepository = new InterfacePersonRepo;
 		$editPerson->setUserIDold($_GET["UserID"]);
 		$editPerson->setUserID(Input::get('txtUserID'));
 		$editPerson->setUsername(Input::get('txtUsername'));
@@ -156,7 +159,7 @@ class PersonController extends BaseController {
 		$editPerson->setEmail(Input::get('txtEmail'));
 		$editPerson->setPhone(Input::get('txtPhone'));
 		$editPerson->setStatus(Input::get('ddlStatus'));
-		$editPerson->editUserRepository();
+		$toRepository->editUserRepository($editPerson);
 	}
 
 	public function delete_user()
@@ -172,22 +175,6 @@ class PersonController extends BaseController {
 			}
 			echo "Delete Complete.<br>";
 			echo "<br> Go to <a href='list_user'>List User</a>";
-		}
-	}
-
-	public function search()
-	{
-		session_start();
-		if($_SESSION['Status'] == "ADMIN"){
-			$tmpSearch = $_GET["txtKeyword"];
-			if($tmpSearch == ""){
-				$tmpUser = PersonRepository::all();
-				return View::make('search_user_list')->with('User',$tmpUser)->with('txtKeyword',$tmpSearch);
-			}else{
-				$tmpUser = PersonRepository::where('Username','like',"$tmpSearch%")
-				->orWhere('Name','like',"$tmpSearch%")->get();
-				return View::make('search_user_list')->with('User',$tmpUser)->with('txtKeyword',$tmpSearch);
-			}
 		}
 	}
 

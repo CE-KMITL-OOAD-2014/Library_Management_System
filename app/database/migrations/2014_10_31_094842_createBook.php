@@ -33,6 +33,7 @@ class CreateBook extends Migration {
 			$table->string('DateBooking');
 			$table->string('DateBorrow');
 			$table->string('DateReturn');
+			$table->interger('LimitBorrow');
 			$table->timestamps();
 		});
 	}

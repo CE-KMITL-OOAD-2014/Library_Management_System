@@ -262,7 +262,7 @@
 
                     <label for="SubType" class="col-md-4 control-label">SubType</label>
                     <div class="col-md-8 form-group">
-                    <select name="ddlType" id="ddlType" class="form-control">
+                    <select name="ddlSubType" id="ddlSubType" class="form-control">
                     @if ($Book->SubType==000)
                         <option value="000">Generalities (000)</option>
                         <option value="100">Philosophy (100)</option>

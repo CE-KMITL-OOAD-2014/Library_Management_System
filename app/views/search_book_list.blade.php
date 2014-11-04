@@ -156,7 +156,7 @@
                             <th width="80"> <div align="center">BookID </div></th>
                             <th width="250"> <div align="center">Title(Thai) </div></th>
                             <th width="250"> <div align="center">Title(English) </div></th>
-                            <th width="250"> <div align="center">ISBN </div></th>
+                            <th width="150"> <div align="center">ISBN </div></th>
                             <th width="120"> <div align="center">Status </div></th>
                             <th width="100"> <div align="center">ID Booking </div></th>
                             <th width="100"> <div align="center">ID Borrow </div></th>

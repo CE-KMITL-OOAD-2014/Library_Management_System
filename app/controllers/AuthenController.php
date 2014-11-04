@@ -14,7 +14,8 @@ class AuthenController extends BaseController {
 		// }
 		session_start();
 
-		$user = new Person;
+		$user = new InterfacePersonRepo;
+
 		$tmp = $user->getRepository(Input::get('txtUsername'),Input::get('txtPassword'));
 		
 

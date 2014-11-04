@@ -49,14 +49,6 @@ Route::post('person/save_edit_user', 'PersonController@save_edit_user');
 
 Route::post('person/delete', 'PersonController@delete_user');
 
-Route::get('person/search_user', function()
-{
-	return View::make('search_user');
-});
-
-Route::get('person/search_user_list', 'PersonController@search');
-
-
 //Group Book
 Route::get('book/register', function()
 {
@@ -73,32 +65,41 @@ Route::post('book/save_edit_book', 'BookController@save_edit_book');
 
 Route::post('book/delete', 'BookController@delete_book');
 
-Route::get('book/search_book', 'BookController@searchView');
-
-Route::get('book/search_book_list', 'BookController@search');
-
-Route::get('book/checkbooking', 'BookController@checkbooking');
-
-Route::post('book/SaveBookingBook', 'BookController@save_booking');
-
-Route::get('book/booking_history', 'BookController@booking_history');
-
-Route::get('book/borrow_history', 'BookController@borrow_history');
-
-Route::get('book/edit_booking_Date', 'BookController@edit_booking_Date');
-
-Route::get('book/check_cancel_booking', 'BookController@check_cancel_booking');
-
-Route::post('book/CancelBooking', 'BookController@cancel_booking');
-
-Route::get('book/BorrowCon', 'BookController@borrow_con');
-
-Route::post('book/SaveReturnDate', 'BookController@save_borrow_con');
-
-Route::get('book/return_book', 'BookController@return_book');
-
-Route::get('book/borrow_book', 'BookController@borrowBook');
-
-Route::post('book/save_borrow_book', 'BookController@save_borrow');
-
 Route::get('book/detailbook', 'BookController@detailbook');
+
+//Group Service
+Route::get('book/search_book_list', 'ServiceController@searchBook');
+
+Route::get('book/search_book', 'ServiceController@searchBook_View');
+
+Route::get('book/checkbooking', 'ServiceController@checkbooking');
+
+Route::post('book/SaveBookingBook', 'ServiceController@save_booking');
+
+Route::get('book/booking_history', 'ServiceController@booking_history');
+
+Route::get('book/borrow_history', 'ServiceController@borrow_history');
+
+Route::get('book/edit_booking_Date', 'ServiceController@edit_booking_Date');
+
+Route::get('book/check_cancel_booking', 'ServiceController@check_cancel_booking');
+
+Route::post('book/CancelBooking', 'ServiceController@cancel_booking');
+
+Route::get('book/BorrowCon', 'ServiceController@borrow_con');
+
+Route::post('book/SaveReturnDate', 'ServiceController@save_borrow_con');
+
+Route::get('book/return_book', 'ServiceController@return_book');
+
+Route::get('book/borrow_book', 'ServiceController@borrowBook');
+
+Route::post('book/save_borrow_book', 'ServiceController@save_borrow');
+
+Route::get('person/search_user', function()
+{
+	return View::make('search_user');
+});
+
+Route::get('person/search_user_list', 'ServiceController@searchUser');
+
