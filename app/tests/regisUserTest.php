@@ -2,8 +2,7 @@
 
 class regisUserTest extends TestCase {
 
-	public static function mockRegisUser($inUsername,$inPassword,$inName,$inSurname,$inAddress,$inEmail,$inPhone,$inStatus)
-	{
+	public static function mockRegisUser($inUsername,$inPassword,$inName,$inSurname,$inAddress,$inEmail,$inPhone,$inStatus){
 		$newPerson = new Person;
 		$newPerson->setUsername($inUsername);
 		$newPerson->setPassword($inPassword);
@@ -15,9 +14,13 @@ class regisUserTest extends TestCase {
 		$newPerson->setStatus($inStatus);
 		return $newPerson;
 	}
+	
+	public static function mockServiceUser(){
+		$newService = new InterfacePersonRepo;
+		return $newService;
+	}
 
 	public function testRegisUser(){
-
 	$Username = 'TestGuest';
 	$Password = 'guest';
 	$Name = 'Phaholyothin';
@@ -28,7 +31,8 @@ class regisUserTest extends TestCase {
 	$Status = 'ADMIN';
 
 	$test = regisUserTest::mockRegisUser($Username,$Password,$Name,$Surname,$Address,$Email,$Phone,$Status);
-	$result = $test->saveRepository();
+	$service = regisUserTest::mockServiceUser();
+	$result = $service->saveRepository($test);
 
 	$this->assertEquals($Username,$result->Username);
 	$this->assertEquals($Password,$result->Password);
