@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-   <body>
-   <div class="row">
-   	  	<div class="col-xs-12 col-md-12">
-   	  		<nav class="navbar navbar-inverse" role="navigation">
-  				<div class="container-fluid">
-    				<!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-      		    <a class="navbar-brand" href="{{url('/')}}">
-               <span class="glyphicon glyphicon-home"></span> Library Management System </a>
-      		    </a>
-    		    </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Booking</a></li>
-                <li><a href="#">Member</a></li>
-                <li><a href="#">Contract Us</a></li>
-              </ul>
-
-              <ul class="nav navbar-nav navbar-right">
-                <button type="button" class="btn btn-primary navbar-btn">Sign up</button>
-                <button type="button" class="btn btn-success navbar-btn">Sign in</button>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-            </nav>
-   	  	</div>
-   </div>
-
+  <body>
+    <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-home"></span> Library Management System </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/person/register"><i class="glyphicon glyphicon-user"></i> Register</a></li>
+            <li><a href="/login"><i class="glyphicon glyphicon-lock"></i> Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -40,17 +29,17 @@
 
 @yield('body')
 
-
-<!DOCTYPE html>
 <html lang="en">  
   <body>
-   <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <center>Power By Administrators.</center>
-          <br>
-        </div>
-   </div>
-
+    <div class="row">
+      <div class="col-xs-12">
+        <center>
+          <p>Power by 2PM CE@KMITL</p>
+          <p>Contract us : <a href="mailto:library2pm@gmail.com">library2pm@gmail.com</a></p>
+          <p>Copyright © 2014 all rights reserved</p>
+        </center>
+      </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
